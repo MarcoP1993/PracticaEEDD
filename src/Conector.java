@@ -1,25 +1,22 @@
 import java.sql.*;
 
-public class Conector extends Agenda {
-
-	public static void main(String[] args) {
-		Connection con;
-		boolean isDBConected;
+public class Conector {
+	
+	public static Connection conectarSQL(String IP, Integer port, String DBname, String user, String password)
+	{
 		
-		try
-		{
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/testDB?serverTimezone=UTC","root","1234");
-			System.out.println("Conexión realizada correctamente con base de datos");
-			isDBConected = true;
-		}
-		catch(Exception e)
-		{
-			isDBConected = false;
-			System.out.println("Error en conexión con base de datos");
-			System.out.println(e);
+		String url= "jdbc:mysql:// " + IP + ":" + "/" + DBname;
+		System.out.println(url);
+		try {
+			Connection conexion = DriverManager.getConnection(url,user,password);
+			
+		} catch (SQLException e) {
+			
 		}
 		
+		
+		return null;
+	}
 	}
 
-}
+
