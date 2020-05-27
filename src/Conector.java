@@ -9,14 +9,16 @@ public class Conector {
 		System.out.println(url);
 		try {
 			Connection conexion = DriverManager.getConnection(url,user,password);
-			
+			System.out.println("Conexion realizada");
+			return conexion;
 		} catch (SQLException e) {
-			
+			System.out.println("error al conectar");
 		}
-		
-		
+			
 		return null;
 	}
+	
+	
 	}
 
 
