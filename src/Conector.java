@@ -18,7 +18,22 @@ public class Conector {
 		return null;
 	}
 	
-	
-	}
+	public static void main(String[] args) {
+		
+		try {
+			Connection con1 = conectarSQL("127.0.0.1", 3306,"conductores","root","1234");
+			if(con1==null) {System.exit(1);}
+			
+		String sql1 = "Insert INTO 'agenda'.'contactos'('nombre', 'apellidos','direccion','email',telefono') VALUES ('pepe','gomez', 'calle uno', 'ejemplo6@email.com','654321098')";
+			try {
+				Statement orden = con1.createStatement();
+				orden.executeUpdate(sql1);
+			} catch (SQLException e) {
+				System.out.println("error al ejecutar la orden");
+				e.printStackTrace();
+			}
+		}	
+	}	
+
 
 
